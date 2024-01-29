@@ -11,6 +11,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import { ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
+
 
 export default function SwipeableTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -18,6 +20,21 @@ export default function SwipeableTemporaryDrawer() {
     left: false,
     
   });
+
+
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode],
+  );
+
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -33,7 +50,10 @@ export default function SwipeableTemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 200, 
+        paddingLeft: 0.5,
+        paddingRight: 0.3,
+      }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -75,14 +95,18 @@ export default function SwipeableTemporaryDrawer() {
           <Button onClick={toggleDrawer('left', true)}>
             <MenuIcon />
           </Button>
-          <SwipeableDrawer
-            anchor={'left'}
-            open={state['left']}
-            onClose={toggleDrawer('left', false)}
-            onOpen={toggleDrawer('left', true)}
-          >
-            {list('left')}
-          </SwipeableDrawer>
+
+            <ThemeProvider theme={theme}>
+                <SwipeableDrawer
+                    anchor={'left'}
+                    open={state['left']}
+                    onClose={toggleDrawer('left', false)}
+                    onOpen={toggleDrawer('left', true)}
+                >
+                    {list('left')}
+                </SwipeableDrawer>
+            </ThemeProvider>
+
         </React.Fragment>
      
     </div>
