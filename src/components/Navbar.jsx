@@ -1,5 +1,6 @@
 import React from 'react'
 import './Navbar.css'
+import HamburgerDrawer from './HamburgerDrawer'
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
     <div className='nav'>
 
         <div className='icon'>
-            Icon
+            <HamburgerDrawer />
         </div>
 
         <img 
