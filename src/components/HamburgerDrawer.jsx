@@ -6,15 +6,13 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import { ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
+import categories from '../data/Category'
 
 
-export default function SwipeableTemporaryDrawer() {
+export default function SwipeableTemporaryDrawer({setCategory}) {
   const [state, setState] = React.useState({
    
     left: false,
@@ -59,27 +57,18 @@ export default function SwipeableTemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItemButton>
-                </ListItem>
-            ))}
+            <ListItem>Categories...</ListItem>
       </List>
 
       <Divider />
 
       <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            {categories.map((text, index) => (
                 <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
+                    <ListItemButton 
+                     style={{height: 40, borderRadius: 5 }} 
+                     onClick={() => setCategory(text)}
+                    >
                         <ListItemText primary={text} />
                     </ListItemButton>
                 </ListItem>

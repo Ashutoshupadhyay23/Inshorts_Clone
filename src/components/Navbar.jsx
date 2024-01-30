@@ -2,13 +2,13 @@ import React from 'react'
 import './Navbar.css'
 import HamburgerDrawer from './HamburgerDrawer'
 
-const Navbar = () => {
+const Navbar = ({setCategory}) => {
   return (
 
     <div className='nav'>
 
         <div className='icon'>
-            <HamburgerDrawer />
+            <HamburgerDrawer setCategory={setCategory} />
         </div>
 
         <img 
