@@ -6,6 +6,17 @@
     height: 50px;
     padding: 0 40px;
     margin: 20px 0 35px 0;
+    font-size: small;
     color: white;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.downloadText{
+    flex: 1;
+}
+
+@media (max-width: 995px) {
+    .downloadMessage{
+        display: none;
+    }
 }

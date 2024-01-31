@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
-import NewsContent from './components/NewsContent'
+import NewsContent from './components/NewsContent/NewsContent'
+import Footer from './components/Footer/Footer'
 import axios from 'axios'
 import apiKey from './data/Config'
 import './index.css'
@@ -35,6 +36,8 @@ function App() {
       <Navbar setCategory={setCategory} />
 
       <NewsContent />
+
+      <Footer />
 
     </div>
   )
