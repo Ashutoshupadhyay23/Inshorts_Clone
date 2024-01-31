@@ -1,4 +1,5 @@
 import React from 'react'
+import './Footer.css'
 
 const Footer = () => {
   return (
@@ -12,13 +13,13 @@ const Footer = () => {
         <hr style={{ width: "90%" }} />
         <div className="iconContainer">
             <a href="https://www.instagram.com/ashutoshupadhya_/" target="__blank">
-                <i className="fab fa-instagram-square fa-2x"></i>
+            <i class="fa-brands fa-instagram fa-2x"></i>
             </a>
             <a href="https://www.linkedin.com/in/ashutosh-upadhyay23" target="__blank">
-                <i className="fab fa-linkedin fa-2x"></i>
+            <i class="fa-brands fa-linkedin-in fa-2x"></i>
             </a>
             <a href="https://ashutoshupadhyay23.github.io/Portfolio/" target="__blank">
-                <i className="fas fa-link fa-2x"></i>
+            <i class="fa-solid fa-link fa-2x"></i>
             </a>
         </div>
     </div>
