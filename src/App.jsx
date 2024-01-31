@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import NewsContent from './components/NewsContent'
 import axios from 'axios'
 import apiKey from './data/Config'
+import './index.css'
 
 function App() {
   
