@@ -35,7 +35,7 @@ function App() {
     <div className='App'>
       <Navbar setCategory={setCategory} />
 
-      <NewsContent />
+      <NewsContent newsArray={newsArray} newsResults={newsResults}/>
 
       <Footer />
 
