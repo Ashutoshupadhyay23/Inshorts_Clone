@@ -4,7 +4,7 @@ import './NewsContent.css'
 import NewsCard from '../newscard/NewsCard'
 
 
-const NewsContent = ({newsArray, newsResults}) => {
+const NewsContent = ({newsArray, newsResults, loadMore, setLoadMore}) => {
   return (
     <Container maxWidth='md'>
         
@@ -34,6 +34,17 @@ const NewsContent = ({newsArray, newsResults}) => {
             {newsArray.map((newsItem) => {
                 <NewsCard newsItem={newsItem} key={newsItem.title} />
             })}
+
+
+            {loadMore <= newsResults && (
+                <>
+                    <button className='loadMore' onClick={() => setLoadMore(loadMore + 20)}>
+                        Load More
+                    </button>
+                </>
+            )}
+            
+
 
         </div>
 
