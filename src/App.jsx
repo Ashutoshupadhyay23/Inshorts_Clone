@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import NewsContent from './components/NewsContent/NewsContent'
 import Footer from './components/Footer/Footer'
 import axios from 'axios'
-import apiKey from './data/Config'
 // import './index.css'
 import "./App.css";
 
@@ -16,7 +15,7 @@ function App() {
 
   const newsApi = async () => {
     try {
-      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=${category}&pageSize=${loadMore}`);
+      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${import.meta.env.VITE_API_KEY}&category=${category}&pageSize=${loadMore}`);
 
       setNewsArray(news.data.articles)
       setNewsResults(news.data.totalResults)
