@@ -4,7 +4,8 @@ import NewsContent from './components/NewsContent/NewsContent'
 import Footer from './components/Footer/Footer'
 import axios from 'axios'
 import apiKey from './data/Config'
-import './index.css'
+// import './index.css'
+import "./App.css";
 
 function App() {
   

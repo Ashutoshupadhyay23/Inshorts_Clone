@@ -2,7 +2,14 @@ import React from 'react'
 
 const NewsCard = ({newsItem}) => {
 
-    console.log(newsItem)
+    // console.log(newsItem)
+
+    const fulldate = new Date(newsItem.publishedAt); // it will return something like this => Sat  Jan 09 2021  17:45:30  GMT+0530
+
+    let date = fulldate.toString().split(" "); // it will return something like this => ["Sat", "Jan", "09", "2021", "17:45:30", "GMT+0530"]
+
+    const hour = parseInt(date[4].substring(0, 2)); //
+    const time = hour > 12 ? true : false;
 
   return (
     <div className='newscard'>
@@ -21,14 +28,24 @@ const NewsCard = ({newsItem}) => {
                 <span className='title'>
                     {newsItem.title}
                 </span>
-
+                <br /> {" "}
                 <span className='author'>
                     <a href={newsItem.url} target='__blank'>
                         <b>short</b>
-                    </a>
+                    </a> {" "}
 
                     <span className='muted'>
-                        by {newsItem.author ? newsItem.author : "unknown"}
+                        {" "}
+                        by {newsItem.author ? newsItem.author : "unknown"} /{" "}
+
+                        {time
+                            ? `${hour - 12}:${date[4].substring(3, 5)} pm`
+
+                            : `${hour}:${date[4].substring(3, 5)} am`} {" "}
+
+                            on {date[2]} {date[1]} {date[3]}, {date[0]
+                        }
+
                     </span>
                     
                 </span>
