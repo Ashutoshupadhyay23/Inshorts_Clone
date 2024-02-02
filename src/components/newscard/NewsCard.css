@@ -45,7 +45,7 @@
 .newsImage {
   object-fit: cover;
   width: 320px;
-  height: 268px;
+  height: 255px;
 }
 .title {
   font-size: 22px;

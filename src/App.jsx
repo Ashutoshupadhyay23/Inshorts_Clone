@@ -17,6 +17,7 @@ function App() {
     try {
       const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${import.meta.env.VITE_API_KEY}&category=${category}&pageSize=${loadMore}`);
 
+      console.log(news)
       setNewsArray(news.data.articles)
       setNewsResults(news.data.totalResults)
 
@@ -36,8 +37,15 @@ function App() {
     <div className='App'>
       <Navbar setCategory={setCategory} />
 
-      <NewsContent newsArray={newsArray} newsResults={newsResults} loadmore={loadMore} setLoadMore={setLoadMore}/>
-
+      {newsResults && (
+        <NewsContent
+          newsArray={newsArray}
+          newsResults={newsResults}
+          loadMore={loadMore}
+          setLoadMore={setLoadMore}
+        />
+      )}
+      
       <Footer />
 
     </div>
