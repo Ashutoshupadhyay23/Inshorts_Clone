@@ -46,7 +46,7 @@ const NewsCard = ({ newsItem }) => {
         </div>
 
         <div className="lowerNewsText">
-          <div className="description">{newsItem.description}</div>
+          <div className="description">{newsItem.description ? newsItem.description : "No description found. Please visit the main source."}</div>
           <span className="readmore">
             read more at{" "}
             <a href={newsItem.url} target="__blank" className="source">
